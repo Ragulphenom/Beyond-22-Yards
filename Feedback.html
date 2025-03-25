@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <link rel="shortcut icon" href="g40s2MKp_400x400.jpg" type="image/x-icon">
+    <title>Feedback</title>
+
+<style>
+    body{
+    background-image: url('turf.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+label{
+color: whitesmoke;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: bold;
+font-size: 20px;
+}
+.box{
+    width: 300px;
+    height: 50px;
+    padding-left: 100px;
+    margin-left: 4%;
+    border-radius: 20px;
+    border: none;
+    top: 20px;
+}
+.age{
+    margin-left: 50px;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+}
+#locd{
+    /* margin-left: 50px; */
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+}
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    position: absolute;
+    background-color: rgba(255, 255, 255,0.3);
+    width: 600px;
+    margin-left: 23%;
+height: 880px;
+border-radius: 20px;
+}
+@media(max-width:600px){
+    .contain{
+        justify-content: start;
+        margin-left: 0%;
+    }
+    #fm{
+        margin-left: -8%;   }
+
+
+}
+
+
+button{width: 150px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    margin-left: 37%;
+    border-radius: 10px;
+    border: none;
+}
+button:hover{
+    border: 3px solid cyan;
+    cursor: url('pngwing.com (1) (1) (1).png'), pointer;
+}
+button:active{
+    background-color: white;
+    color: red;
+}
+
+
+#name{
+    margin-left: 30px;
+}
+#mails{
+margin-left: 50px;
+}
+#locd{
+margin-right: 5px;
+text-align: center;
+right: 20px;
+
+}
+.msg{
+    color: red;
+}
+#text{
+    margin-left: 120px;
+    border-radius: 10px;
+}
+
+.main{
+    color: green;
+    margin-bottom: 10%;
+}   
+
+#gender{
+    margin-left: 20%;
+    
+}
+span{
+    color:rgb(167, 20, 10);
+    font-weight: bold;
+    font-size: 20px;
+}
+h1{
+    
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    text-shadow: 0px 0px 10px gold,0px 0px 20px,0px 0px 40px cyan,0px 0px 80px;
+    background-color: green;
+    text-align: center;
+}
+
+#nerror{margin-left: 18%;}
+#aerror{margin-left: 18%;}
+#merror{margin-left: 18%;}
+#gerror{margin-left: 18%;}
+#lerror{margin-left: 18%;}
+#ferror{margin-left: 18%;}
+
+#feed{
+    /* position: absolute; */
+    margin-bottom: 10%;
+}
+
+#locs{
+    margin-right: 2%;
+}
+
+#name:hover{border: 3px solid green;}
+
+#age:hover{border: 3px solid green;}
+
+#gender:hover{border: 3px solid green;}
+#mails:hover{border: 3px solid green;}
+
+#text:hover{border: 3px solid green;}
+
+
+#locd:hover{border: 3px solid green;}
+
+body{
+    margin: 0px;
+    padding: 0px;
+
+}
+</style>
+
+
+
+
+
+</head>
+<body>
+    <h1>Feedback</h1>
+    <br>
+    <div class="contain">
+    <form name="myform" id="fm">
+    <label class="main">Name</label>
+    <input id="name" name="name" class="box" type="text"  placeholder="Enter your name">
+    <label id="nerror" class="msg"></label>
+    <br><br><br>
+    <label class="main">Age</label>
+    <input id="age" name="age" class="age" type="number" min="0" max="100" >
+    <label id="aerror" class="msg"></label><br><br><br>
+    <label class="main">Gender</label>
+    <input type="radio" name="gender" value="Male" id="gender"><span>Male</span>
+    <input type="radio" value="Female" name="gender"id="gender"><span>Female</span><br>
+    <label id="gerror" class="msg"></label><br><br><br>
+    <label class="main">Mail</label>
+    <input id="mails" name="mail" class="box" type="email" placeholder="Enter your Mail id">
+    <label id="merror" class="msg"></label><br><br><br>
+    <label class="main" id="locs">Location</label>
+    <input  id="locd" name="location"  type="text" placeholder="Enter your Location">
+    <label id="lerror" class="msg"></label><br><br><br>
+    <label class="main" id="feed">Feedback</label><br>
+    <textarea id="text"  name="feed" cols="50" rows="15"></textarea>
+    <label id="ferror" class="msg"></label><br><br><br>  
+    <button type="submit">Submit</button>
+</form>
+</div>
+
+
+<script>
+
+    document.getElementById('fm').addEventListener('submit',(e)=>{
+e.preventDefault();
+
+var fname=document.getElementById('name').value.trim();
+var age=document.getElementById('age').value.trim();
+var mail=document.getElementById('mails').value.trim();
+var location = document.getElementById('locd').value.trim();
+var feedback=document.getElementById('text').value.trim();
+var gender=document.querySelector('input[name="gender"]:checked');
+
+var isValid=true;
+
+var nerror=document.querySelector('#nerror');
+var aerror=document.querySelector('#aerror');
+var merror=document.querySelector('#merror');
+var lerror=document.querySelector('#lerror');
+var ferror=document.querySelector('#ferror');
+var gerror=document.querySelector('#gerror');
+nerror.textContent="";
+aerror.textContent="";
+merror.textContent="";
+lerror.textContent="";
+ferror.textContent="";
+gerror.textContent = "";
+
+if(fname ==''){
+    nerror.textContent="Enter your name";
+    isValid=false;
+}
+else if(age ==''){
+    aerror.textContent="Enter your age";
+    isValid=false;
+    
+}else if(!gender){
+gerror.textContent="Select your Gender"
+isValid=false;
+}else if(mail ==''){
+merror.textContent="Enter your mail";
+isValid=false;
+}else if(location==''){
+lerror.textContent="Enter your location";
+isValid=false;
+}else if(feedback ==''){
+ferror.textContent="Enter your Feedback";
+isValid=false;
+}
+else{
+    alert("Feedback submitted successfully")
+   e.target.reset();
+}
+
+
+
+}
+
+
+
+
+
+);
+
+
+</script>
+
+
+</body>
+</html>

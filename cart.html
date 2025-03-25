@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="g40s2MKp_400x400.jpg" type="image/x-icon">
+    <title>Cart</title>
+    
+    <style>
+        .cart-summary{
+            margin-left: 42%;
+            background-color: rgb(226, 141, 141);
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: linear-gradient(to Right, rgba(255, 145, 0, 0.774), blue);
+        }
+        .cart {
+            margin-top: 20px;
+            border: 1px solid #000;
+            padding: 10px;
+            width: 80%;
+        }
+        .cart table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cart table, .cart th, .cart td {
+            border: 1px solid #222121;
+        }
+        .cart th, .cart td {
+            padding: 8px;
+            text-align: center;
+        }
+        .cart-summary {
+            margin-top: 20px;
+        }
+        .btn{
+            background-color: blue;
+            color: white;
+            width: 200px;
+            height: 50px;
+            margin-left: 42%;
+            margin-top: 3%;
+            border-radius: 5px;
+        }
+        .btn:hover{
+            background-color: red;
+        }
+        .btn:active{
+            background-color: #000;
+        }
+.cart{
+    margin-left: 8%;
+}
+h1{
+    color: white;
+    text-shadow: 0px 0px 10px red,
+    0px 0px 20px gold,
+    0px 0px 40px cyan;
+    margin-left: 44%;
+    padding-bottom: 40px;
+}
+table{
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <div class="cart">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+             
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <strong>Total Price:</strong> RS <span id="total-price">0</span>
+        </div>
+    </div>
+<button class="btn"  onclick="fn()">Order now</button>
+    <script>
+        // Function to render cart items
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = ""; // Clear existing content
+
+            let totalPrice = 0;
+
+            for (const id in cart) {
+                const item = cart[id];
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>RS ${item.price}</td>
+                    <td><button onclick="updateQuantity(${id}, -1)">-</button>&nbsp;&nbsp;${item.quantity}&nbsp;&nbsp;<button onclick="updateQuantity(${id}, 1)">+</button></td>
+                    <td>RS ${itemTotal}</td>
+                    
+                `;
+                cartItems.appendChild(row);
+            }
+
+            document.getElementById("total-price").textContent = totalPrice;
+
+            // Save the updated cart
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        // Function to update the quantity of an item
+        function updateQuantity(id, change) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
+            
+            if (cart[id]) {
+                cart[id].quantity += change;
+
+                if (cart[id].quantity <= 0) {
+                    delete cart[id]; // Remove item if quantity is 0
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart(); // Re-render cart
+            }
+        }
+
+        // Initial rendering
+        renderCart();
+    </script>
+    <script>
+        function fn(){
+let confirmation = confirm("Do you want to place your order");
+if(confirmation==true){
+            alert("Order Placed Successfully!!!");
+            const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = "";
+
+        // Reset the total price to 0
+        document.getElementById("total-price").textContent = "0";
+        }else{
+            alert("Order not placed")
+        }
+        }
+    </script>
+</body>
+</html>

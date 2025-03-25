@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet</title>
+    <link rel="shortcut icon" href="g40s2MKp_400x400.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="home.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+       input{
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    margin-left: 33%;
+    background-color: #bff8ba;
+}
+input:focus{
+    border: none;
+}
+h1{
+    background-color: green;
+    text-align: center;
+    color: rgb(245, 250, 245);
+    text-shadow: 0 0 10px red,
+    0 0 20px ,
+    0 0 40px rgb(247, 10, 10),
+    0 0 80px
+    ;
+}
+        body{
+            background-image: url('turf.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        
+                main{
+                    margin-top: 3%;
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    gap: 30px;
+                    margin-left: 10%;
+                    flex-wrap: wrap;
+                    
+                }
+        .ball1{
+            background-color: #3E4E50;
+            width: 300px;
+            height: 330px;
+            text-align: center;
+            color: aliceblue;
+            
+        }
+        button{
+            position: relative;
+            bottom: 15px;
+            width: 100px;
+            height: 30px;
+            background-color: #FF312E;
+            border: none;
+            color: beige;
+        }
+                
+img:hover{
+    filter: grayscale(90%);
+}
+button:hover{
+    border: 2px solid cyan;
+}
+button:active{
+    background-color: black;
+    color: cyan;
+}
+.searching .fa-solid{
+    position: absolute;
+    display: inline-block;
+   margin-left: 120%;
+   padding: 10px;
+   color: #3E4E50;
+   left: 100px;
+   padding-left: 10px;
+
+}
+.searching{
+    text-align: center;
+    position: relative;
+            width: 400px;
+            margin-left: 20%;
+}
+
+
+#products{
+    display: grid;
+
+    grid-template-columns: auto auto auto;
+                    gap: 30px;
+                    margin-left: 5%;
+                    flex-wrap: wrap;
+}
+@media(max-width:1000px){
+    #products{
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-left: 5%;
+         flex-wrap: wrap;
+         align-items: center;
+        transition: 1s ease-in; 
+        gap: 20px;
+        /* display: flex;
+        flex-direction: column;
+        transition: 1s ease-in;
+        gap: 20px; */
+    }
+}
+
+@media (max-width:600px) {
+    .toppage .fa-solid{
+        position: absolute;
+margin-left:-80%;
+/* margin-top: 8px; */
+font-size: 15px;
+color: #050404 ;
+display: inline-block;
+/* bottom: 10px; */
+
+}
+.toppage a{
+    color: rgb(253, 251, 251);
+    text-decoration: none;
+    margin-left: 73%;
+    font-size: 15px;
+    background-color: black;
+    top:20%;
+    
+   
+}
+    #products{
+        display: flex;
+        flex-direction: column;
+        transition: 1s ease-in;
+        gap: 20px;
+    }
+    .searching{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+       
+      margin-left: -50px;
+        /* background-color: aliceblue; */
+    
+    }
+    .searching .fa-solid{
+        position: absolute;
+    color: black;
+   margin-left: 60%;
+   padding: 10px;
+   color: #3E4E50;
+   display: inline-block;
+   padding-left: 10px;
+  
+}
+
+}
+
+.toppage{
+
+margin-top: 2%;
+}
+.toppage .fa-solid{
+position: absolute;
+margin-left: 87%;
+margin-top: 8px;
+font-size: 25px;
+
+}
+a{
+color: rgb(253, 251, 251);
+text-decoration: none;
+margin-left: 90%;
+font-size: 30px;
+background-color: black;
+top:20%
+
+}
+a:hover{
+color: cyan;
+background-color: red;
+}
+a:active{
+color: cyan;
+background-color: violet    ;
+}
+
+
+.ball1{
+    border: 3px solid rgba(228, 250, 34,0.7);
+}
+.ball1:hover{
+    border: 3px solid red;
+}
+
+                </style>
+</head>
+<body>
+    <h1>Helmet</h1>
+    <br>
+    <div>
+        <div class="toppage"><i class="fa-solid fa-cart-shopping"></i>
+        <a href="cart.html">Go to Cart</a></div>
+        <div class="searching">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searching" type="search" width="400" height="50" placeholder="Search here">
+        </div>
+    </div>
+
+    <br><br>
+    <main>
+        <div id="products">
+    <div class="ball1"><img src="helmet1.jpeg" width="300" height="250"><br><b><i>Stanford Cricket helmet</i></b><br><h5>Price : RS 2500</h5><br>
+        <button onclick="addToCart(1,'Stanford Cricket helmet',2500)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet2.jpg" width="300" height="250"><br><b><i>DSC Cricket helmet</i></b><br><h5>Price : RS 1400</h5><br>
+        <button onclick="addToCart(2,'DSC Cricket helmet',1400)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet3.avif" width="300" height="250"><br><b><i>BDM Cricket helmet</i></b><br><h5>Price : RS 1500</h5><br>
+        <button onclick="addToCart(3,'BDM Cricket helmet',1500)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet4.jpg" width="300" height="250"><br><b><i>CSK Edition Cricket helmet</i></b><br><h5>Price : RS 3000</h5><br>
+        <button onclick="addToCart(4,'CSK Edition Cricket helmet',3000)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet5.webp" width="300" height="250"><br><b><i>SG Cricket helmet</i></b><br><h5>Price : RS 4500</h5><br>
+        <button onclick="addToCart(5,'SG Cricket helmet',4500)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet6.webp" width="300" height="250"><br><b><i>SM Cricket helmet</i></b><br><h5>Price : RS 2500</h5><br>
+        <button onclick="addToCart(6,'SM Cricket helmet',2500)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet7.jpg" width="300" height="250"><br><b><i>DSC Cricket helmet</i></b><br><h5>Price : RS 1900</h5><br>
+        <button onclick="addToCart(7,'DSC Cricket helmet',1900)">Add to Cart</button></div>
+    <div class="ball1"><img src="helmet8.jpg" width="300" height="250"><br><b><i>DSC Cricket helmet</i></b><br><h5>Price : RS 2900</h5><br>
+        <button onclick="addToCart(8,'DSC Cricket helmet',2900)">Add to Cart</button></div>
+</div>
+</main>
+
+
+
+    <script>
+        // Function to add a product to the cart
+        function addToCart(id, name, price) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
+            
+            if (cart[id]) {
+                cart[id].quantity += 1;
+            } else {
+                cart[id] = { name, price, quantity: 1 };
+            }
+            
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${name} added to the cart!`);
+        }
+    </script>
+    
+<script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("searching"); // Search input field
+      const products = document.querySelectorAll("#products > div"); // Select all product containers
+    
+      searchInput.addEventListener("input", (event) => {
+        const searchQuery = event.target.value.toLowerCase().trim(); // Get the search input, case-insensitive
+    
+        products.forEach((product) => {
+          const productName = product.querySelector("b i").textContent.toLowerCase(); // Get product name
+    
+          if (productName.includes(searchQuery)) {
+            product.style.display = "block"; // Show the product if it matches the query
+          } else {
+            product.style.display = "none"; // Hide the product if it doesn't match
+          }
+        });
+      });
+    });
+    
+    </script>
+
+
+
+</body>
+</html>
