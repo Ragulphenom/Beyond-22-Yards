@@ -34,7 +34,6 @@ Welcome to the **Beyond 22 Yards** – a platform designed for cricket enthusias
 # To run this app locally
 
  git clone https://github.com/Ragulphenom/Beyond-22-Yards.git
-   cd Beyond-22-Yards
 
 
 # To run
